@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8' />
+    <title>University of Oregon Mapping</title>
+    <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+    <!--    Include the reference to the Mapbox JavaScript here in the <head> of the page    -->
+    
+        <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v2.2.0/mapbox-gl.js'></script>
+
+
+          
+    <!--    Include the reference to the Mapbox CSS here in the <head> of the page    -->
+    
+       <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v2.2.0/mapbox-gl.css' rel='stylesheet' />
+
+        
+   <style>
+    /* Insert the CSS code here between the <style> tags */
+
+    body { margin:0; padding:0; }
+    #map { position:absolute; top:0; bottom:0; width:100%; }
+
+    #title { z-index: 9999; 
+             background-color:plum; 
+             opacity: 70%; 
+             text-align: center; 
+             
+           }
+</style>
+
+  </head>
+
+  <body>
+    <!--  Insert the map div here in the <body> of the page  -->
+      
+      <div id='map'></div>
+
+   
+    <!--  Insert the tile div here (part V) -->
+     
+       <div id='title'> 
+     		<h1>Map of Ixtapa Zihuatanejo</h1>
+     		<h2>By: Alyssa Cano</h2>
+          
+         
+           
+ 	</div>
+
+    
+      
+    <script>
+        // Insert the JavaScript within the <script> tags, within the body   
+        // Start with the Mapbox access token here
+ 
+        mapboxgl.accessToken = 'pk.eyJ1IjoiYWx5c3NhY2FubyIsImEiOiJjbGc1Zmsxc2owMnZ5M2RteTJhbzc3bjIzIn0.vzSqeahbltVZvZ982Jh7Yw';
+
+   
+        // Then initialize the map here
+   
+          var map = new mapboxgl.Map({
+     container: 'map', // id of a div on your page, where the map will be inserted
+     style: 'mapbox://styles/mapbox/satellite-v9', // stylesheet location
+     center: [-101.58734, 17.66256], // starting position [-101.58734, 17.66256]
+     zoom: 11 // starting zoom 
+ });
+
+
+        // Add popup markers here  (part IV)
+        
+         var popup = new mapboxgl.Popup({ offset: 25 })
+     .setHTML('Hello! Welcome to Ixtapa Zihuatanejo! Here is a link to know more about this beautiful location in Mexico: <a>https://thediplomaticinsight.com/ixtapa-the-mexican-gem-lost-in-time/<a>');
+        
+       var marker = new mapboxgl.Marker({color:'purple'})
+     .setLngLat([-101.58734, 17.66256])
+     .setPopup(popup) //add the popup with the variable name 'popup' to the marker 
+     .addTo(map); // add the open marker to the map
+        
+         var popup_layer = new mapboxgl.Popup({closeOnClick: true}) 
+        
+        // Add any other variables such as markers here (part III)
+        
+      var popup2 = new mapboxgl.Popup({ offset: 25 })
+         .setHTML('Visit Playa El Palmar one of the many beaches in Ixtapa Zihuatanejo');
+         
+         var marker2 = new mapboxgl.Marker({color:'teal'})
+   .setLngLat([101.6002, 17.6550]) // starting position [-101.58734, 17.66256]
+   .addTo(map);
+
+        
+    
+        // Add optional advanced "On load" function here
+        
+    </script>
+
+  </body>
+
+</html>
