@@ -1,0 +1,110 @@
+<!-- A Versatile Layout for Full-screen Maps by Andy Cochran
+Andy Cochran 
+From https://medium.com/nyc-planning-digital/a-versatile-layout-for-full-screen-maps-229cec508b22 -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+        <meta charset="utf-8">
+        <title>Washington D.C Map</title>
+
+
+            <!-- JavaScript Libraries-->
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.4.3/js/foundation.js"></script>
+
+
+            <!-- CSS Links -->
+            <link href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.4.3/css/foundation.min.css" rel="stylesheet" />
+            <link href="VersitileLayout.css" rel="stylesheet" />
+
+
+    
+</head>
+
+<body>
+
+            <div class="site-header">
+                <strong class="site-title">Map of Washington D.C</strong>
+            </div>
+
+            <div class="site-main grid-x has-content-open">
+
+                <div class="search-container cell medium-3 large-2">
+                    <input type="text" placeholder="Search..." class="search" />
+                    <ul class="search-results no-bullet">
+                        <li>Theatre</li>
+                        <li>Bar</li>
+                        <li>Bicycle</li>
+                        <li>Music</li>
+                    </ul>
+                </div>
+
+              <div class="map-container cell medium-auto large-order-2">
+                     
+                    
+                    
+                    <!--  ADD iframe here, inside the versitle layout's map container (VI.2.)   -->
+
+                      <iframe src="assignment5.html" title="Map of Washington D.C"></iframe> 
+
+
+
+                </div>
+
+                <!--  Sidebar panel  -->
+                <div class="sidebar cell medium-3 large-2 large-order-1 show-for-medium">
+                    <h5>Sidebar</h5>
+                    <ul>
+                        <li><a class="content-link" href="#">Open Content</a></li>
+                        <li>Theatre</li>
+                        <li>Bar</li>
+                        <li>Bicycle</li>
+                        <li>Music</li>
+
+                    </ul>
+
+                    <hr />
+
+                </div>
+
+                <div class="content-close-button-container">
+                    <a href="#" class="content-close-button">×</a>
+                </div>
+
+           
+                <!--  Content panel  -->
+            <div class="content cell large-5 large-order-3">
+                <h2>Content</h2>
+                <p>This map is showing a variety of icons that include a bicycle, music areas, a bar, and theatre areas through the Washington D.C area.</p>
+            </div>
+
+            </div>
+
+        <script>
+       
+            $(document).ready(function() {
+
+                $('.content-close-button').click(function() {
+                    $('.content-close-button').hide();
+                    $('.content').hide();
+                    $('.site-main').removeClass('has-content-open')
+
+                    // When the map is resized programmatically, window resize must be triggered so that the map renders in the newly allotted space.
+                    window.dispatchEvent(new Event('resize'));
+
+                                                            });
+
+                $('.content-link').click(function() {
+                    $('.content-close-button').show();
+                    $('.content').show();
+                    $('.site-main').addClass('has-content-open')
+                    window.dispatchEvent(new Event('resize'));
+                                                     });
+
+                                        });
+        </script>
+
+</body>
+
+</html>
